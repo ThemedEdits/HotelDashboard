@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelEase | Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans transition-all duration-300">
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuButton" class="md:hidden fixed top-4 right-4 z-50 bg-indigo-600 text-white p-2 rounded-lg shadow-lg">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 w-64 bg-white shadow-lg z-40 transition-transform duration-300 ease-in-out">
+        <div class="p-4 flex items-center space-x-3 border-b border-gray-200">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                <i class="fas fa-hotel text-indigo-600 text-xl"></i>
+            </div>
+            <h1 class="text-xl font-bold text-indigo-700">HotelEase</h1>
+        </div>
+        
+        <nav class="p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a href="index.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-tachometer-alt text-gray-500"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bookings.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-calendar-check text-gray-500"></i>
+                        <span>Bookings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="hotels.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-hotel text-gray-500"></i>
+                        <span>Hotels</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="customers.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-users text-gray-500"></i>
+                        <span>Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html" class="flex items-center space-x-3 p-3 rounded-lg bg-indigo-50 text-indigo-700 font-medium">
+                        <i class="fas fa-cog text-indigo-600"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="absolute bottom-0 w-full p-4 border-t border-gray-200">
+            <div class="flex items-center space-x-3">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full">
+                <div>
+                    <p class="font-medium">Sarah Johnson</p>
+                    <p class="text-sm text-gray-500">Admin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="md:ml-64 transition-all duration-300">
+        <!-- Header -->
+        <header class="bg-white shadow-sm p-4 sticky top-0 z-30">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold text-gray-800">Settings</h2>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button id="notificationsButton" class="text-gray-500 hover:text-indigo-600 transition-colors">
+                            <i class="fas fa-bell text-xl"></i>
+                            <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <button id="userMenuButton" class="flex items-center space-x-2">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-8 h-8 rounded-full">
+                            <span class="hidden md:inline">Sarah</span>
+                            <i class="fas fa-chevron-down text-xs hidden md:inline"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="p-4 md:p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Settings Navigation -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                    <div class="p-5 border-b border-gray-200">
+                        <h3 class="font-medium">Settings</h3>
+                    </div>
+                    <div class="divide-y divide-gray-100">
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors border-l-4 border-indigo-500 bg-indigo-50">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                                    <i class="fas fa-user text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Profile</p>
+                                    <p class="text-sm text-gray-500">Update your personal details</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-lock text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Security</p>
+                                    <p class="text-sm text-gray-500">Change password and security settings</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-bell text-green-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Notifications</p>
+                                    <p class="text-sm text-gray-500">Configure notification preferences</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                                    <i class="fas fa-credit-card text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Billing</p>
+                                    <p class="text-sm text-gray-500">Payment methods and invoices</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center">
+                                    <i class="fas fa-cog text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Preferences</p>
+                                    <p class="text-sm text-gray-500">System and display preferences</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Profile Settings -->
+                <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="p-5 border-b border-gray-200">
+                            <h3 class="font-medium">Profile Settings</h3>
+                        </div>
+                        <div class="p-5">
+                            <form>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                        <input type="text" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" value="Sarah">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                        <input type="text" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" value="Johnson">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" value="sarah@hotelease.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                                        <input type="tel" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" value="+1 555-123-4567">
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                                        <textarea rows="3" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">Hotel manager with over 8 years of experience in the hospitality industry.</textarea>
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Profile Photo</label>
+                                        <div class="flex items-center space-x-4">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-16 h-16 rounded-full">
+                                            <div>
+                                                <button type="button" class="px-3 py-1 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Change</button>
+                                                <button type="button" class="px-3 py-1 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 ml-2">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-end space-x-3">
+                                    <button type="button" class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Cancel</button>
+                                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden mt-6">
+                        <div class="p-5 border-b border-gray-200">
+                            <h3 class="font-medium">Social Media Links</h3>
+                        </div>
+                        <div class="p-5">
+                            <form>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Twitter</label>
+                                        <div class="flex rounded-lg shadow-sm">
+                                            <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500">
+                                                <i class="fab fa-twitter"></i>
+                                            </span>
+                                            <input type="text" class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="twitter.com/username">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Facebook</label>
+                                        <div class="flex rounded-lg shadow-sm">
+                                            <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </span>
+                                            <input type="text" class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="facebook.com/username">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Instagram</label>
+                                        <div class="flex rounded-lg shadow-sm">
+                                            <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500">
+                                                <i class="fab fa-instagram"></i>
+                                            </span>
+                                            <input type="text" class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="instagram.com/username">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">LinkedIn</label>
+                                        <div class="flex rounded-lg shadow-sm">
+                                            <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </span>
+                                            <input type="text" class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="linkedin.com/in/username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-end space-x-3">
+                                    <button type="button" class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">Cancel</button>
+                                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

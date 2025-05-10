@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelEase | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans transition-all duration-300">
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuButton" class="md:hidden fixed top-4 right-4 z-50 bg-indigo-600 text-white p-2 rounded-lg shadow-lg">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 w-64 bg-white shadow-lg z-40 transition-transform duration-300 ease-in-out">
+        <div class="p-4 flex items-center space-x-3 border-b border-gray-200">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                <i class="fas fa-hotel text-indigo-600 text-xl"></i>
+            </div>
+            <h1 class="text-xl font-bold text-indigo-700">HotelEase</h1>
+        </div>
+        
+        <nav class="p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a href="index.html" class="flex items-center space-x-3 p-3 rounded-lg bg-indigo-50 text-indigo-700 font-medium">
+                        <i class="fas fa-tachometer-alt text-indigo-600"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bookings.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-calendar-check text-gray-500"></i>
+                        <span>Bookings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="hotels.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-hotel text-gray-500"></i>
+                        <span>Hotels</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="customers.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-users text-gray-500"></i>
+                        <span>Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-cog text-gray-500"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="absolute bottom-0 w-full p-4 border-t border-gray-200">
+            <div class="flex items-center space-x-3">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full">
+                <div>
+                    <p class="font-medium">Sarah Johnson</p>
+                    <p class="text-sm text-gray-500">Admin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="md:ml-64 transition-all duration-300">
+        <!-- Header -->
+        <header class="bg-white shadow-sm p-4 sticky top-0 z-30">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold text-gray-800">Dashboard Overview</h2>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button id="notificationsButton" class="text-gray-500 hover:text-indigo-600 transition-colors">
+                            <i class="fas fa-bell text-xl"></i>
+                            <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                        </button>
+                        <div id="notificationsDropdown" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 z-50">
+                            <div class="p-3 border-b border-gray-200">
+                                <h3 class="font-medium">Notifications (3)</h3>
+                            </div>
+                            <div class="divide-y divide-gray-100 max-h-60 overflow-y-auto">
+                                <a href="#" class="flex items-start p-3 hover:bg-gray-50 transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 mt-1">
+                                        <i class="fas fa-calendar-check text-indigo-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">New booking</p>
+                                        <p class="text-sm text-gray-500">Room #203 booked for 2 nights</p>
+                                        <p class="text-xs text-gray-400 mt-1">2 mins ago</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="flex items-start p-3 hover:bg-gray-50 transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3 mt-1">
+                                        <i class="fas fa-star text-yellow-500 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">New review</p>
+                                        <p class="text-sm text-gray-500">5-star rating for Grand Hotel</p>
+                                        <p class="text-xs text-gray-400 mt-1">1 hour ago</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="flex items-start p-3 hover:bg-gray-50 transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 mt-1">
+                                        <i class="fas fa-check-circle text-green-500 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Payment received</p>
+                                        <p class="text-sm text-gray-500">$450 for booking #45678</p>
+                                        <p class="text-xs text-gray-400 mt-1">3 hours ago</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="p-3 border-t border-gray-200 text-center">
+                                <a href="#" class="text-indigo-600 text-sm font-medium">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <button id="userMenuButton" class="flex items-center space-x-2">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-8 h-8 rounded-full">
+                            <span class="hidden md:inline">Sarah</span>
+                            <i class="fas fa-chevron-down text-xs hidden md:inline"></i>
+                        </button>
+                        <div id="userMenuDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-50">
+                            <div class="p-4 border-b border-gray-200">
+                                <p class="font-medium">Sarah Johnson</p>
+                                <p class="text-sm text-gray-500">sarah@hotelease.com</p>
+                            </div>
+                            <div class="p-1">
+                                <a href="#" class="block px-3 py-2 text-sm hover:bg-gray-50 rounded">Your Profile</a>
+                                <a href="#" class="block px-3 py-2 text-sm hover:bg-gray-50 rounded">Settings</a>
+                                <a href="#" class="block px-3 py-2 text-sm hover:bg-gray-50 rounded">Sign out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-4 md:p-6">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white rounded-xl shadow-sm p-5 border-l-4 border-indigo-500" data-aos="fade-up">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm text-gray-500">Total Bookings</p>
+                            <h3 class="text-2xl font-bold mt-1">1,248</h3>
+                            <p class="text-sm text-green-500 mt-2"><i class="fas fa-arrow-up mr-1"></i> 12% from last month</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-indigo-100 text-indigo-600">
+                            <i class="fas fa-calendar-check text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm p-5 border-l-4 border-blue-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm text-gray-500">Available Rooms</p>
+                            <h3 class="text-2xl font-bold mt-1">156</h3>
+                            <p class="text-sm text-green-500 mt-2"><i class="fas fa-arrow-up mr-1"></i> 8% available</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-blue-100 text-blue-600">
+                            <i class="fas fa-bed text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm p-5 border-l-4 border-green-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm text-gray-500">Revenue</p>
+                            <h3 class="text-2xl font-bold mt-1">$84,245</h3>
+                            <p class="text-sm text-green-500 mt-2"><i class="fas fa-arrow-up mr-1"></i> 23% from last month</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-green-100 text-green-600">
+                            <i class="fas fa-dollar-sign text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm p-5 border-l-4 border-purple-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm text-gray-500">Customer Satisfaction</p>
+                            <h3 class="text-2xl font-bold mt-1">94%</h3>
+                            <p class="text-sm text-red-500 mt-2"><i class="fas fa-arrow-down mr-1"></i> 2% from last month</p>
+                        </div>
+                        <div class="p-3 rounded-lg bg-purple-100 text-purple-600">
+                            <i class="fas fa-smile text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Booking Trends -->
+                <div class="bg-white rounded-xl shadow-sm p-5 lg:col-span-2" data-aos="fade-up">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-medium">Booking Trends</h3>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 text-sm bg-indigo-50 text-indigo-600 rounded-lg">Monthly</button>
+                            <button class="px-3 py-1 text-sm text-gray-500 hover:bg-gray-50 rounded-lg">Weekly</button>
+                            <button class="px-3 py-1 text-sm text-gray-500 hover:bg-gray-50 rounded-lg">Daily</button>
+                        </div>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="bookingChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Revenue Sources -->
+                <div class="bg-white rounded-xl shadow-sm p-5" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-medium mb-4">Revenue Sources</h3>
+                    <div class="h-64">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Bookings & Top Hotels -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Recent Bookings -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up">
+                    <div class="p-5 border-b border-gray-200">
+                        <h3 class="font-medium">Recent Bookings</h3>
+                    </div>
+                    <div class="divide-y divide-gray-100">
+                        <div class="p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                                        <i class="fas fa-calendar-check text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">#BK-78945</p>
+                                        <p class="text-sm text-gray-500">Deluxe Room</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium">$245</p>
+                                    <p class="text-sm text-gray-500">2 nights</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center mt-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-6 h-6 rounded-full">
+                                    <p class="text-sm">John Smith</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">Confirmed</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <i class="fas fa-calendar-check text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">#BK-78944</p>
+                                        <p class="text-sm text-gray-500">Executive Suite</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium">$420</p>
+                                    <p class="text-sm text-gray-500">3 nights</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center mt-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User" class="w-6 h-6 rounded-full">
+                                    <p class="text-sm">Emily Johnson</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                                        <i class="fas fa-calendar-check text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">#BK-78943</p>
+                                        <p class="text-sm text-gray-500">Standard Room</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium">$180</p>
+                                    <p class="text-sm text-gray-500">1 night</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center mt-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="w-6 h-6 rounded-full">
+                                    <p class="text-sm">Michael Brown</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">Confirmed</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                        <i class="fas fa-calendar-check text-red-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">#BK-78942</p>
+                                        <p class="text-sm text-gray-500">Family Suite</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium">$320</p>
+                                    <p class="text-sm text-gray-500">2 nights</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center mt-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="User" class="w-6 h-6 rounded-full">
+                                    <p class="text-sm">Sarah Wilson</p>
+                                </div>
+                                <span class="px-2 py-1 text-xs bg-red-100 text-red-800 rounded-full">Cancelled</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-200 text-center">
+                        <a href="bookings.html" class="text-indigo-600 font-medium text-sm">View all bookings</a>
+                    </div>
+                </div>
+                
+                <!-- Top Hotels -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-5 border-b border-gray-200">
+                        <h3 class="font-medium">Top Hotels</h3>
+                    </div>
+                    <div class="divide-y divide-gray-100">
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hotel" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-medium">Grand Plaza Hotel</h4>
+                                    <div class="flex items-center mt-1">
+                                        <div class="flex text-yellow-400">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500 ml-2">4.5 (128 reviews)</span>
+                                    </div>
+                                    <div class="flex items-center mt-1 text-sm text-gray-500">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>
+                                        <span>New York, USA</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium text-indigo-600">$120<small class="text-gray-500 font-normal">/night</small></p>
+                                    <p class="text-sm text-green-500 mt-1">92% occupancy</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hotel" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-medium">Ocean View Resort</h4>
+                                    <div class="flex items-center mt-1">
+                                        <div class="flex text-yellow-400">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500 ml-2">5.0 (86 reviews)</span>
+                                    </div>
+                                    <div class="flex items-center mt-1 text-sm text-gray-500">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>
+                                        <span>Miami, USA</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium text-indigo-600">$210<small class="text-gray-500 font-normal">/night</small></p>
+                                    <p class="text-sm text-green-500 mt-1">88% occupancy</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hotel" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-medium">Mountain Lodge</h4>
+                                    <div class="flex items-center mt-1">
+                                        <div class="flex text-yellow-400">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500 ml-2">4.0 (64 reviews)</span>
+                                    </div>
+                                    <div class="flex items-center mt-1 text-sm text-gray-500">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>
+                                        <span>Denver, USA</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium text-indigo-600">$95<small class="text-gray-500 font-normal">/night</small></p>
+                                    <p class="text-sm text-green-500 mt-1">85% occupancy</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="block p-4 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hotel" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-medium">Urban Boutique Hotel</h4>
+                                    <div class="flex items-center mt-1">
+                                        <div class="flex text-yellow-400">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500 ml-2">4.5 (72 reviews)</span>
+                                    </div>
+                                    <div class="flex items-center mt-1 text-sm text-gray-500">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>
+                                        <span>Chicago, USA</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-medium text-indigo-600">$135<small class="text-gray-500 font-normal">/night</small></p>
+                                    <p class="text-sm text-green-500 mt-1">90% occupancy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-4 border-t border-gray-200 text-center">
+                        <a href="hotels.html" class="text-indigo-600 font-medium text-sm">View all hotels</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Booking Trends Chart
+            const bookingCtx = document.getElementById('bookingChart').getContext('2d');
+            const bookingChart = new Chart(bookingCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Bookings',
+                        data: [65, 59, 80, 81, 56, 55, 40, 72, 85, 91, 76, 89],
+                        backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                        borderColor: 'rgba(99, 102, 241, 1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                drawBorder: false
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Revenue Sources Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(revenueCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Standard Rooms', 'Deluxe Rooms', 'Suites', 'Other Services'],
+                    datasets: [{
+                        data: [35, 25, 30, 10],
+                        backgroundColor: [
+                            'rgba(99, 102, 241, 0.8)',
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(139, 92, 246, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(99, 102, 241, 1)',
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

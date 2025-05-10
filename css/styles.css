@@ -1,0 +1,106 @@
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Custom tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+/* Header adjustments for mobile */
+@media (max-width: 767px) {
+    header {
+        padding: 0.75rem 1rem;
+    }
+    
+    #mobileMenuButton {
+        position: relative;
+        left: 5px;
+        top: 5px;
+        z-index: 40;
+        margin-right: 0.5rem;
+    }
+    
+    #notificationsButton, #userMenuButton {
+        position: relative;
+        z-index: 40;
+    }
+    
+    /* Ensure header stays above sidebar when menu is open */
+    header {
+        z-index: 50;
+    }
+}
+
+/* Notification dropdown positioning */
+@media (max-width: 767px) {
+    #notificationsDropdown {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 320px;
+        box-shadow: 0 0 20px #000000 ;
+    }
+}
+
